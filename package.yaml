@@ -1,0 +1,33 @@
+name:                zeit
+version:             0.1.0.0
+license:             GPL-3
+author:              "Malvin Gattinger"
+maintainer:          "malvin@w4eg.eu"
+copyright:           "2020 Malvin Gattinger"
+
+dependencies:
+- base >= 4.7 && < 5
+- extra
+
+ghc-options:
+- -Wall
+
+extra-source-files:
+- index.html
+
+library:
+  source-dirs: src
+
+executables:
+  web:
+    main:                web.hs
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - zeit
+    - file-embed
+    - scotty
+    - text
+    - time
